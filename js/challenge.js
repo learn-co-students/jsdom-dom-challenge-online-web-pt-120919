@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let form = document.getElementById("comment-form")
+    
     let newCounter = 0
     myCounter = window.setInterval(increaseCounter, 1000)
     const counter = document.getElementById("counter")
@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let heart = document.getElementById("heart")
     let likes = document.querySelector(".likes")
     let pause = document.getElementById("pause")
-
+    let form = document.getElementById("comment-form")
+    
     form.addEventListener("submit", function(event) {
         event.preventDefault()
         let comment = document.getElementById("comment-input").value 
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function like() {
-        likes.innerHTML += `<li>${newCounter} number has been liked!</li>`
+        likes.innerHTML += `<li>Number ${newCounter} has been liked!</li>`
     }
 
     function toggleButton(e) {
