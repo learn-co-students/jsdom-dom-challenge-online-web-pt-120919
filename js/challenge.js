@@ -6,6 +6,7 @@ let pause = document.getElementById("pause");
 let submit = document.getElementById("submit");
 
 
+
 plus.addEventListener('click', function(){
     let counter = document.getElementById('counter');
     let counterNumber = parseInt(counter.innerHTML);
@@ -62,3 +63,5 @@ heart.addEventListener("click", function(){
     heartLi.innerText = `${counter.innerHTML} has been liked ${count++}`;
     document.querySelector("ul.likes").appendChild(heartLi);
   });
+
+
