@@ -57,9 +57,8 @@ pause.addEventListener("click", function(){
     document.getElementById('comment-input').value = ''
   });
 
-  heart.addEventListener('click', function(){
-    let likeClass = document.querySelector('.likes');
-    likeClass.innerHTML = `<li>${counter.innerHTML} has been liked ${count++}</li>`
-     
-     
- })
+heart.addEventListener("click", function(){
+    let heartLi = document.createElement("li");
+    heartLi.innerText = `${counter.innerHTML} has been liked ${count++}`;
+    document.querySelector("ul.likes").appendChild(heartLi);
+  });
