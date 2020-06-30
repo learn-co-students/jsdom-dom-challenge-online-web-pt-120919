@@ -2,7 +2,8 @@ const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const heart = document.getElementById('heart');
 let count = 0;
-let likeClass = document.getElementsByClassName('likes')[0];
+let pause = document.getElementById("pause");
+let submit = document.getElementById("submit");
 
 
 plus.addEventListener('click', function(){
@@ -27,13 +28,38 @@ function incrementSeconds() {
 let timer = setInterval(incrementSeconds, 1000);
 
 
+pause.addEventListener("click", function(){
+    if(pause.innerText == 'pause') {
+      clearInterval(timer)
+      pause.innerText = 'resume';
+      minus.disabled = true;
+      plus.disabled = true;
+      heart.disabled = true;
+      submit.disabled = true;
+    } else {
+        timer = setInterval(incrementSeconds, 1000);
+      pause.innerText = 'pause';
+      minus.disabled = false;
+      plus.disabled = false;
+      heart.disabled = false;
+      submit.disabled = false;
+    }
+  });
 
+  submit.addEventListener("click", function(e){
+    e.preventDefault();
+    let comment = document.getElementById('comment-input').value
+    let commentsList = document.querySelector('.comments')
+    var p = document.createElement("p");
+    var node = document.createTextNode(comment)
+    p.appendChild(node);
+    commentsList.appendChild(p);
+    document.getElementById('comment-input').value = ''
+  });
 
-heart.addEventListener('click', function(){
-    
-   likeClass.innerHTML = `<li>${counter.innerHTML} has been liked ${count++}</li>`
-    
-    
-})
-
-
+  heart.addEventListener('click', function(){
+    let likeClass = document.querySelector('.likes');
+    likeClass.innerHTML = `<li>${counter.innerHTML} has been liked ${count++}</li>`
+     
+     
+ })
