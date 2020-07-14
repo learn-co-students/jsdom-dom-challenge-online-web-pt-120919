@@ -11,18 +11,21 @@
     }
   </style>
 </head>
-<body>
+
+<!-- start increment when page loads -->
+<body onload="setIncrement();">
   <h1>
     Welcome to the DOM Challenge
   </h1>
   <h1 id='counter'>
     0
   </h1>
-  <button id='minus' > ➖ </button>
-  <button id='plus' > ➕ </button>
-  <button id='heart' > ❤️ </button>
-  <button id='pause' > pause </button>
-
+  <div id="controls">
+    <button id='minus' onclick="numberDecrement();"> ➖ </button>
+    <button id='plus' onclick="numberIncrement();"> ➕ </button>
+    <button id='heart' onclick="likesIncrement();"> ❤️ </button>
+    <button id='pause'> pause </button><!-- pause increment when button clicked -->
+  </div>
   <ul class='likes'></ul>
 
   <div>
@@ -39,7 +42,7 @@
 
   </div>
 
-  <!-- <script src="js/index.min.js"></script> -->
+  <script src="js/index.min.js"></script>
   <script src="js/challenge.js"></script>
 </body>
 </html>
